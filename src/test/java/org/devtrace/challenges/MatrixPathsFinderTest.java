@@ -15,6 +15,7 @@ public class MatrixPathsFinderTest {
 
     @Test
     public void countAllPaths() throws InterruptedException {
+
         final int[] startAndEndPoints = {0, 0, 3, 3};
         final int pathsCount = MatrixPathsFinder.countAllUniquePaths(matrix, startAndEndPoints);
 
