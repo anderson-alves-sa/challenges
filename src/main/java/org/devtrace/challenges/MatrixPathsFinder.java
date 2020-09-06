@@ -29,18 +29,15 @@ public class MatrixPathsFinder {
 
     private static int countMatrixPaths(int[][] matrix, boolean[][] visited, int x, int y, int pathsCount, int limit) throws InterruptedException {
 
-
         if (x == endPointX && y == endPointY) {
             pathsCount++;
+            visited[x][y] = true;
+            printMatrix(visited);
+            visited[x][y] = false;
             return pathsCount;
         }
 
         visited[x][y] = true;
-
-        printMatrix(matrix, x, y);
-        printMatrix(visited);
-        System.out.println(pathsCount);
-        System.out.println("--------");
 
         if (isValid(x, y, limit) && matrix[x][y] == 1) {
             // down
@@ -63,9 +60,6 @@ public class MatrixPathsFinder {
         }
 
         visited[x][y] = false;
-
-        printMatrix(visited);
-        System.out.println("backtracking");
 
         return pathsCount;
     }
